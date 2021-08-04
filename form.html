@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Bootstrap link-->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<!--Add text field function-->
+	<script>
+function add_field()
+{
+  var total_text=document.getElementsByClassName("input_text");
+  total_text=total_text.length+1;
+  document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
+  "<p id='input_text"+total_text+"_wrapper'><input type='text' class='input_text' id='input_text"+total_text+"' placeholder='Enter Text'><input type='button' value='Remove' onclick=remove_field('input_text"+total_text+"');></p>";
+}
+function remove_field(id)
+{
+  document.getElementById(id+"_wrapper").innerHTML="";
+}
+</script>
+
+<!--Add text field 1 function-->
+<script>
+function add_field1()
+{
+  var total_text=document.getElementsByClassName("input_text");
+  total_text=total_text.length+1;
+  document.getElementById("field_div").innerHTML=document.getElementById("field_div").innerHTML+
+  "<p id='input_text"+total_text+"_wrapper'><select class='dropdown'><option>Test 1</option><option>Test 2</option></select><select class='dropdown'><option>Test 1</option><option>Test 2</option></select><input type='text' class='input_text' id='input_text"+total_text+"' placeholder='Enter Text'><i style='font-size: 25px' class='bi bi-plus-square' onclick='add_field();'></i><input type='button' value='Add rule' onclick='add_field1();'><input type='button' value='Remove' onclick=remove_field1('input_text"+total_text+"');></p>";
+}
+function remove_field1(id)
+{
+  document.getElementById(id+"_wrapper").innerHTML="";
+}
+</script>
+</head>
+
+<style>
+
+.form-control{
+	width: 740px;height: 35px
+}
+
+#nf{
+	width: 250px;height: 35px
+}
+
+.dropdown {
+  display: inline-block;
+  color: black;
+  padding: 10px;
+  font-size: 12px;
+}
+
+input[type=text] {
+  width: 740px;
+  height: 35px;
+  box-sizing: border-box;
+}
+
+input[type=number] {
+  width: 740px;
+  height: 35px;
+  box-sizing: border-box;
+}
+
+.container {
+	background-color: rgb(240, 240, 240);
+}
+
+#wrapper{
+	background-color: rgb(180, 180, 180);
+}
+
+.btn-default{
+	background-color: rgba(255, 135, 0, 1);
+}
+</style>
+
+
+<body >
+
+<div class="container">
+
+<h2>Add Revenue Group</h2>
+<form>
+	<label>Revenue Group Title</label><br>
+	<input type="text"  value=""><br><br>
+	<label>if</label>
+	<select class="dropdown">
+		<option>Test 1</option>
+		<option>Test 2</option>
+	</select>
+
+	<label>of the below conditions are met</label>
+	<br><br>
+
+	<div id="wrapper">
+<div id="field_div">
+
+	<select class="dropdown">
+		<option>Test 1</option>
+		<option>Test 2</option>
+	</select>
+	<select class="dropdown">
+		<option>Test 1</option>
+		<option>Test 2</option>
+	</select>
+	<input type="text" class="TextBox" id="field1" value="" >
+	<i style="font-size: 25px"class="bi bi-plus-square" onclick="add_field();"></i>
+	<input type="button" value="Add rule" onclick="add_field1();"><br>
+
+<br>
+</div>
+</div>
+<br>
+<label>then revenue is </label>
+<input type="number" id="nf" >
+<br><br>
+ <input class="btn btn-default" type="submit" value="Confirm">
+ <input class="btn btn-default" type="submit" value="Cancel">
+</form>
+</div>
+</body>
+</html>
